@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'users/**'
+      - 'providerss/**'
   workflow_dispatch:
     inputs:
       logLevel:
@@ -27,7 +27,7 @@ jobs:
           node-version: 16.x
       - name: Install dependencies
         run: |
-          cd users
+          cd providerss
           npm install
       - name: Run tests
         run: npm test
@@ -40,9 +40,9 @@ jobs:
       - name: Deploy API to Render
         if: github.ref == 'refs/heads/main'
         env:
-          USERS_DEPLOY_HOOK: ${{ secrets.USERS_DEPLOY_HOOK }}
+          PROVIDERS_DEPLOY_HOOK: ${{ secrets.PROVIDERS_DEPLOY_HOOK }}
         run: |
-          response=$(curl -s -o /dev/null -w "%{http_code}" -X POST $USERS_DEPLOY_HOOK)
+          response=$(curl -s -o /dev/null -w "%{http_code}" -X POST $PROVIDERS_DEPLOY_HOOK)
           if [ $response -eq 200 ]
           then
               echo "Deployed successfully"

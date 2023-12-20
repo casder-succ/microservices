@@ -26,10 +26,10 @@ jobs:
         with:
           node-version: 16.x
       - name: Install dependencies
-        run: |
-          cd tasks
-          npm install
+        working-directory: ./tasks
+        run: npm install
       - name: Run tests
+        working-directory: ./tasks
         run: npm test
 
   deploy_to_render:

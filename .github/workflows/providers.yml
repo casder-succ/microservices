@@ -26,10 +26,10 @@ jobs:
         with:
           node-version: 16.x
       - name: Install dependencies
-        run: |
-          cd providerss
-          npm install
+        working-directory: ./providerss
+        run: npm install
       - name: Run tests
+        working-directory: ./providerss
         run: npm test
 
   deploy_to_render:

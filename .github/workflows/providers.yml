@@ -1,4 +1,4 @@
-name: 'Application API deployment (users)'
+name: 'Application API deployment (providers)'
 
 on:
   push:

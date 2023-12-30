@@ -41,7 +41,7 @@ describe('UsersController', () => {
   });
 
   it('should be defined', () => {
-    expect(undefined).toBeDefined();
+    expect(controller).toBeDefined();
   });
 
   it('should create user', (done) => {
